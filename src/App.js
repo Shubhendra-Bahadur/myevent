@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
       db.collection('todos').orderBy('timestamp',"desc").onSnapshot(snapshot => {
          //console.log(snapshot.docs.map(doc => doc.data().todo));
-        setTodos(snapshot.docs.map(doc => doc.data().todo))
+        setTodos(snapshot.docs.map(doc => ({id:doc.id,todo:doc.data().todo})))
       })
   },[])
 
@@ -20,8 +20,8 @@ function App() {
 
   const addtodo = (event) => {
     event.preventDefault();
-    console.log(input);
-    console.log(todos);
+    // console.log(input);
+    // console.log(todos);
     db.collection('todos').add(
       {
         todo:input,
@@ -47,7 +47,7 @@ function App() {
       <ul>
         {
           todos.map(todo => (
-            <Todo text={todo} />
+            <Todo todo={todo} />
           ))
         }
       </ul>
