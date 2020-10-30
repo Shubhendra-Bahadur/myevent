@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, List, ListItem, ListItemText } from "@material-ui/core";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import db from "./firebase";
 function Todo(props) {
   //console.log(props);
@@ -13,9 +14,9 @@ function Todo(props) {
         <ListItem>
           <ListItemText primary={props.todo.todo} secondary='active'></ListItemText>
         </ListItem>
-        <div>
-          <Button onClick={deletetodo} variant="outlined"><i className="fas fa-trash font-awsome-danger">&nbsp;&nbsp;</i>Delete Me</Button>
-        </div>
+
+        <Button onClick={deletetodo} variant="outlined"><HighlightOffIcon style={{ color: '#d51010' }} />&nbsp;&nbsp;Delete Me</Button>
+
       </List>
       {/* <li></li> */}
     </div>
