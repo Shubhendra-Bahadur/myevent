@@ -37,7 +37,7 @@ function App() {
       <form>
         <FormControl onSubmit={addtodo}>
           <InputLabel><i className="fas fa-check font-awsome-success"></i> Write Todo</InputLabel>
-          <Input type="text" value={input} onChange={event => setInput(event.target.value)}></Input>
+          <Input type="text" value={input} onChange={event => setInput(event.target.value)} placeholder='Enter your Schedule'></Input>
         </FormControl>
         <Button disabled={!input} type='submit' onClick={addtodo} variant="contained" color="primary">
           Add Todo
